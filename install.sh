@@ -21,3 +21,6 @@ if sudo -lU $USER grep -xqFe "$USER ALL=(ALL) NOPASSWD:ALL" /etc/sudoers
 then
   echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 fi
+
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash

@@ -32,6 +32,7 @@ if [ "$?" -ne 0 ]; then
   curl -fsSL https://get.docker.com -o get-docker.sh
   sudo sh get-docker.sh
   sudo usermod -aG docker "$USER"
+  rm get-docker.sh
 fi
 
 # Install docker-compose

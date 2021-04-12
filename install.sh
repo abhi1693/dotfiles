@@ -44,3 +44,9 @@ sudo apt install make -y
 
 # Install gcc and g++
 sudo apt install gcc g++ -y
+
+# Install helm
+which helm
+if [ "$?" -ne 0 ]; then
+  sudo snap install helm --classic
+fi

@@ -41,3 +41,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Install make
 sudo apt install make -y
+
+# Install gcc and g++
+sudo apt install gcc g++ -y

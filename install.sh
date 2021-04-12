@@ -7,7 +7,7 @@ sudo apt upgrade -y
 sudo apt autoremove -y
 
 # Install arbitrary software
-sudo apt install apt-transport-https ca-certificates curl git gnupg-agent software-properties-common wget  -y
+sudo apt install apt-transport-https ca-certificates curl git gnupg-agent software-properties-common wget -y
 
 # Install zsh
 sudo apt install zsh -y
@@ -17,10 +17,23 @@ cp .zshrc "$HOME"
 cp .zshenv "$HOME"
 
 # Make sure sudo is password-less
-if sudo -lU $USER grep -xqFe "$USER ALL=(ALL) NOPASSWD:ALL" /etc/sudoers
-then
+if sudo -lU "$USER" grep -xqFe "$USER ALL=(ALL) NOPASSWD:ALL" /etc/sudoers; then
   echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 fi
 
 # Install nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+if [ ! -d "${HOME}/.nvm" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+fi
+
+# Install docker
+which docker
+if [ "$?" -ne 0 ]; then
+  curl -fsSL https://get.docker.com -o get-docker.sh
+  sudo sh get-docker.sh
+  sudo usermod -aG docker "$USER"
+fi
+
+# Install docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose

@@ -50,3 +50,6 @@ which helm
 if [ "$?" -ne 0 ]; then
   sudo snap install helm --classic
 fi
+
+# Install python and pip
+sudo apt install python3 python3-dev python3-pip -y

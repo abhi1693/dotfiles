@@ -53,3 +53,6 @@ fi
 
 # Install python and pip
 sudo apt install python3 python3-dev python3-pip -y
+
+# Install Pycharm Professional
+sudo snap install pycharm-professional --classic

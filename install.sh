@@ -57,6 +57,16 @@ sudo apt install python3 python3-dev python3-pip -y
 # Install Pycharm Professional
 sudo snap install pycharm-professional --classic
 
+# Install gh cli
+which gh
+if [ "$?" -ne 0 ]; then
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+  sudo apt update
+  sudo apt install gh
+  gh auth login
+fi
+
 # Update git global config
 git config --global user.name "Abhimanyu Saharan"
 git config --global user.email "desk.abhimanyu@gmail.com"

@@ -53,9 +53,6 @@ fi
 # Install python and pip
 sudo apt install python3 python3-dev python3-pip -y
 
-# Install Pycharm Professional
-sudo snap install pycharm-professional --classic
-
 # Install gh cli
 which gh
 if [ "$?" -ne 0 ]; then
@@ -68,4 +65,4 @@ fi
 
 # Update git global config
 git config --global user.name "Abhimanyu Saharan"
-git config --global user.email "desk.abhimanyu@gmail.com"
+git config --global user.email "asaharan@onemindservices.com"

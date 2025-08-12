@@ -66,3 +66,6 @@ fi
 # Update git global config
 git config --global user.name "Abhimanyu Saharan"
 git config --global user.email "asaharan@onemindservices.com"
+
+# Install OpenAI Codex CLI
+npm install -g @openai/codex
